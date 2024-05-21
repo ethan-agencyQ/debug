@@ -15,12 +15,7 @@ import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentBuilder } from 'temp/componentBuilder';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
-const SitecorePage = ({
-  notFound,
-  componentProps,
-  layoutData,
-  headLinks,
-}: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
@@ -48,7 +43,7 @@ const SitecorePage = ({
         {isComponentRendering ? (
           <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
         ) : (
-          <Layout layoutData={layoutData} headLinks={headLinks} />
+          <Layout />
         )}
       </SitecoreContext>
     </ComponentPropsContext>
