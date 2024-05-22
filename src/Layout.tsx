@@ -12,7 +12,20 @@ const Layout = (): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">Test</div>
 
-      <Script src={`/main.js`} strategy="lazyOnload" />
+      <Script
+        src={`/main.js`}
+        strategy="lazyOnload"
+        onLoad={() => {
+          console.log('javascript loaded');
+        }}
+        onReady={() => {
+          console.log('javascript ready');
+        }}
+        onError={(e: Error) => {
+          console.log('javascript error');
+          console.log(e);
+        }}
+      />
     </>
   );
 };
