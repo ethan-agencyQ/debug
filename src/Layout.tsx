@@ -12,8 +12,7 @@ const Layout = (): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div className="container">Test</div>
 
-      {process.env.NODE_ENV !== 'production' && <Script src={`/main.js`} strategy="lazyOnload" />}
-      {process.env.NODE_ENV === 'production' && <script src="/main.js" async />}
+      <Script src={`/main.js`} strategy="lazyOnload" />
     </>
   );
 };
